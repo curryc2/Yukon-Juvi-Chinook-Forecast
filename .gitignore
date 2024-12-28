@@ -47,3 +47,9 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+# Basic Ignores:
+.Rproj.user
+.Rhistory
+.DS_Store
+
