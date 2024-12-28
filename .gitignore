@@ -53,3 +53,5 @@ rsconnect/
 .Rhistory
 .DS_Store
 
+# Ignore confiential data in /data folder
+data/*
