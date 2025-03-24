@@ -8,6 +8,24 @@
 
 ### NOTE: Some of the code chunks could probably be condensed into a function ###
 
+# Load required packages
+require(geosphere)
+require(reshape2)
+require(tidyverse)
+require(readxl)
+require(zoo)
+require(scales)
+require(ggpubr)
+require(ggrepel)
+require(ggpmisc)
+require(tibbletime)
+require(here)
+
+wd <- here()  
+setwd(wd)
+
+dir.data <- file.path(wd, "data")
+
 # If running scripts simultaneously, objects should already be in global 
 # environment 
 
@@ -18,7 +36,7 @@ if( !exists( "all_juvs" ) ) source( "2_calc_stock_spec_juv_abun.R" )
 ######################### Canadian-origin ######################################
 
 # Read in brood tables from master file 
-cdn_brood <- read_excel( "masterNBSdata.xlsx", sheet = "CDNbrood - Hama" )
+cdn_brood <- read_excel( file.path(dir.data, "masterNBSdata.xlsx"), sheet = "CDNbrood - Hama" )
 
 # Create juvenile per spawner data table for completed brood years - CANADIAN
 # Canadian return data is assumed to have a CV of 10%
@@ -69,7 +87,7 @@ cdn_mat_forecast <- cdn_mat %>%
 ############################# Total Yukon ######################################
 
 # Read in brood tables from master file 
-total_brood <- read_excel( "masterNBSdata.xlsx", sheet = "TOTbrood - Hama" )
+total_brood <- read_excel( file.path(dir.data,"masterNBSdata.xlsx"), sheet = "TOTbrood - Hama" )
 
 # Create juvenile per spawner data table for completed brood years - TOTAL RUN
 # Total Yukon return data is assumed to have a CV of 15%
@@ -113,3 +131,4 @@ total_mat_forecast <- total_mat %>%
      as.data.frame() %>% 
      select( brood_year, age3_avg, age4_avg, age5_avg, age6_avg ) %>% 
      filter( brood_year > 2000 )
+
