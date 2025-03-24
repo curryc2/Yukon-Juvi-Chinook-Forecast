@@ -6,6 +6,24 @@
 ##############################################################################
 ##############################################################################
 
+# Load required packages
+require(geosphere)
+require(reshape2)
+require(tidyverse)
+require(readxl)
+require(zoo)
+require(scales)
+require(ggpubr)
+require(ggrepel)
+require(ggpmisc)
+require(tibbletime)
+require(here)
+
+wd <- here()  
+setwd(wd)
+
+dir.data <- file.path(wd, "data")
+
 # If running scripts simultaneously, objects should already be in global 
 # environment and you can run entire script
 
@@ -18,7 +36,7 @@ if( !exists( "total_juvs" ) ) source( "1_calc_juv_abun.R" )
 # Calculate averages to fill in years where no genetic data is available
 ###############################################################################
 
-gsi <- read_excel( "masterNBSdata.xlsx", sheet="GSI" )  %>%
+gsi <- read_excel( file.path(dir.data,"masterNBSdata.xlsx"), sheet="GSI" )  %>%
        mutate( cdn_mean = cdn_mean/100, cdn_sd = cdn_sd/100, middle_mean = middle_mean/100,
              lower_mean = lower_mean/100, otherwak_mean = otherwak_mean/100,
              totalYukon_mean = totalYukon_mean/100, totalYukon_sd = totalYukon_sd/100 ) 
