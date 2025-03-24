@@ -17,6 +17,7 @@ require(ggpubr)
 require(ggrepel)
 require(ggpmisc)
 require(tibbletime)
+require(here)
 
 ###############################################################################
 # IMPORTANT: Annual changes needed to R script
@@ -32,12 +33,15 @@ recent_year_mlds <- TRUE
 # write a function that can handle that part automatically
 
 #3. Set working directory to desired folder
-setwd( "C:/Users/sgarcia/Desktop/Marine Research/NBS Data/Chinook/Juvenile Forecast" )  
+wd <- here()  
+setwd(wd)
+
+dir.data <- file.path(wd, "data")
 
 ################################################################################
 # Read in northern Bering Sea survey data
 ################################################################################
-nbs <- read_excel( "masterNBSdata.xlsx", sheet="juvs" )
+nbs <- read_excel( file.path(dir.data,"masterNBSdata.xlsx"), sheet="juvs" )
 
 # columns are: year, region, station, date (in AKST), start and end lat/longs,
 # distance (km) as calculated using the starting and ended GPS coordinates, 
