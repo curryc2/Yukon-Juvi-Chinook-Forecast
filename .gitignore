@@ -52,6 +52,7 @@ rsconnect/
 .Rproj.user
 .Rhistory
 .DS_Store
+*.Rproj
 
 # Ignore confiential data in /data folder
 data/*
