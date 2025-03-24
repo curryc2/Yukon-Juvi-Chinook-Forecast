@@ -59,3 +59,6 @@ data/*
 
 # Created .csv files in /output folder
 output/*.csv
+
+# Created .jpeg figures
+figs/*.jpeg
