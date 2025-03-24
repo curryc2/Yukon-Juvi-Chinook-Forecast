@@ -5,7 +5,23 @@
 # Written by: Sabrina Garcia
 ##############################################################################
 ##############################################################################
+# Load required packages
+require(geosphere)
+require(reshape2)
+require(tidyverse)
+require(readxl)
+require(zoo)
+require(scales)
+require(ggpubr)
+require(ggrepel)
+require(ggpmisc)
+require(tibbletime)
+require(here)
 
+wd <- here()  
+setwd(wd)
+
+dir.data <- file.path(wd, "data")
 # NBS juvenile abundance
 nbs_juv_plot <- ggplot( total_juvs, aes( x = year, y = juv_abun_adj/1000 ) ) + 
      geom_bar( stat = "identity", fill = "light gray" ) + 
@@ -205,6 +221,6 @@ plot.list[[9]] = total_jps_plot
 for( t in 1:length( plot.list ) ) {
      
      ggsave( plot = plot.list[[t]], 
-             file = paste0("Output/figure_",t,"_",Sys.Date(),".jpeg") ) 
+             file = paste0("figs/figure_",t,"_",Sys.Date(),".jpeg") ) 
      
 }
