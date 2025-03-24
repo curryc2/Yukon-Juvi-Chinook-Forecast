@@ -6,7 +6,23 @@
 # Written by: Sabrina Garcia
 ##############################################################################
 ##############################################################################
+# Load required packages
+require(geosphere)
+require(reshape2)
+require(tidyverse)
+require(readxl)
+require(zoo)
+require(scales)
+require(ggpubr)
+require(ggrepel)
+require(ggpmisc)
+require(tibbletime)
+require(here)
 
+wd <- here()  
+setwd(wd)
+
+dir.data <- file.path(wd, "data")
 # If you haven't run scripts 1 - 4, you will need to source the objects from them
 # Next line will search for objects and source scripts if needed
 if( !exists( "total_proj_data" ) ) source( "4_calc_pred_survivors.R" )
