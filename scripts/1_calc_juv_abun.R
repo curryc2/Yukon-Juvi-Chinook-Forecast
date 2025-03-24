@@ -328,9 +328,9 @@ if( recent_year_mlds == FALSE ) {
 # Saves to output folder within directory
 ################################################################################
 
-dir.create( paste0( getwd(),"/Output") ) # will output warning if this folder already exists
+# dir.create( paste0( getwd(),"/Output") ) # will output warning if this folder already exists
     
-write.csv( total_juvs, file = paste0("Output/juvChinookAbun_",Sys.Date(),".csv") )
+write.csv( total_juvs, file = paste0("output/juvChinookAbun_",Sys.Date(),".csv") )
 
 
 
