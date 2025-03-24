@@ -56,3 +56,6 @@ rsconnect/
 
 # Ignore confiential data in /data folder
 data/*
+
+# Created .csv files in /output folder
+output/*.csv
